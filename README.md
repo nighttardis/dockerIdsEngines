@@ -13,14 +13,14 @@ This is useful to testing out how different IDS engines handle a pcap or for tes
 
 The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.
 
-#### /usr/local/etc/dockerIdsEngines/[enginename]/[ruleset name] ####
+`/usr/local/etc/dockerIdsEngines/[enginename]/[ruleset name]`
 
 -	This folder is  designed to maintain your IDS Engine configurations
 -	Gets mounted to /usr/local/etc/dockerIdsEngines/ when the container is built
 -	Maintaining the rulesets and configurations on the host ensures that changes are pushed to containers when they are created
 -	As additional engines become supported, I will ensure that they are created when running easy_button.sh
 	
-#### /usr/local/etc/dockerIdsEngines/pcaps ####
+`/usr/local/etc/dockerIdsEngines/pcaps`
 
 -	This folder is designed to hold the pcaps that you will be running through the IDS Engine
 -	Gets mounted to /tmp when the container is built
@@ -32,7 +32,7 @@ The easy button script has been tested on ubuntu 14.04 and assumes you already h
 
 Currently, no ruleset is provided.  It is entirely up to the user to place an appropriate configuration and rule files on the host system. 
 Place your ruleset in the following directory
-- /usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]
+-	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]
 	
 Once you have the ruleset and pcaps in the correct folder you can call the IDS engine as such. 
 
@@ -40,17 +40,18 @@ Once you have the ruleset and pcaps in the correct folder you can call the IDS e
 ### Usage: $0 -i [image_name] -e [engine] -r [ruleset] -p [pcap] -x [extra options]
 
 #### Mandatory options:
-`-i` The docker image name to run <br>
-`-e` The IDS engine to run (currently just snort) <br>
-`-r` The ruleset name to for which to load the config file <br>
-`-p` The packet capture file to read <br>
+`-i` The docker image name to run  
+`-e` The IDS engine to run (currently just snort)  
+`-r` The ruleset name to for which to load the config file  
+`-p` The packet capture file to read  
+
 #### Non-mandatory options:
-`-x` Any other options to the IDS engine you'd like ("-k none") <br>
+`-x` Any other options to the IDS engine you'd like ("-k none")  
 
 
 
 
 
-## Examples ## 
+## Examples
 
 > ./run_engine.sh -i brandondecodedtechsolutions/snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q"
