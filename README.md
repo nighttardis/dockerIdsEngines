@@ -37,14 +37,16 @@ Place your ruleset in the following directory
 Once you have the ruleset and pcaps in the correct folder you can call the IDS engine as such. 
 
 
-> ##### Usage: $0 -i [image_name] -e [engine] -r [ruleset] -p [pcap] -x [extra options]
->
-> [image_name] = the docker image name to run
-> [engine] = the IDS engine to run (currently just snort)
-> [ruleset] = The ruleset name to for which to load the config file
-> [pcap] = the packet capture file to read
-> [extra options] = any other options to the IDS engine you'd like ("-k none")
-  
+### Usage: $0 -i [image_name] -e [engine] -r [ruleset] -p [pcap] -x [extra options]
+
+#### Mandatory options:
+`-i` The docker image name to run <br>
+`-e` The IDS engine to run (currently just snort) <br>
+`-r` The ruleset name to for which to load the config file <br>
+`-p` The packet capture file to read <br>
+#### Non-mandatory options:
+`-x` Any other options to the IDS engine you'd like ("-k none") <br>
+
 
 
 
