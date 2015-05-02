@@ -1,6 +1,26 @@
 #!/bin/bash
 
+while [[ $# -ge 1 ]]
+do
 
+key="$1"
+
+case $key in
+    -i|--install-docker)
+    INSTALL_DOCKER="YES"
+	shift
+    ;;
+	*)
+         echo "unknown"   # unknown option
+    ;;
+esac
+shift
+done
+# check for root permissions
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 
 # make directory for storing common files that will be shared by snort 
 # an example is going to the ruleset files
@@ -15,10 +35,11 @@ mkdir --parents /usr/local/etc/dockerIdsEngines/pcaps/
 # ln -s /usr/share/zoneinfo/UTC /etc/localtime
 
 # install docker
-wget -qO- https://get.docker.com/ | sh
-
-usermod -aG docker "$(id -un 2>/dev/null || true)"
-
+if [ "$INSTALL_DOCKER" = "YES" ]; then
+	echo "Installing docker"
+	wget -qO- https://get.docker.com/ | sh
+	usermod -aG docker "$(id -un 2>/dev/null || true)"
+fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
 
