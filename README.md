@@ -28,7 +28,8 @@ The run_engine.sh script runs a docker container of your choice, mapping two hos
 ## How-To ##
 
 After cloning the repo, simply run the ./easy-button.sh script.
-The easy button script has been tested on ubuntu 14.04 and assumes you already have docker installed.
+The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed. 
+Add the --install-docker flag to install docker.
 
 Currently, no ruleset is provided.  It is entirely up to the user to place an appropriate configuration and rule files on the host system. 
 Place your ruleset in the following directory
