@@ -42,5 +42,8 @@ if [ "$INSTALL_DOCKER" = "YES" ]; then
 fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
-
+# get docker-snort-2.9.6.0
 docker pull brandondecodedtechsolutions/docker-snort-2.9.6.0
+docker tag brandondecodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
+docker rmi brandondecodedtechsolutions/docker-snort-2.9.6.0
+
