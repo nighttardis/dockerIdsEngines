@@ -11,7 +11,6 @@ mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen/
 chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen/
 
 wget -q http://rules.emergingthreats.net/open/snort-2.9.0/emerging-all.rules --output-document /usr/local/etc/dockerIdsEngines/snort/ETOpen/policy.rules
-tar zxf /usr/local/etc/dockerIdsEngines/snort/ETOpen/emerging.rules.tar.gz -C /usr/local/etc/dockerIdsEngines/snort/ETOpen/rules/
 # Copy a sane default configuration
 cp ETOpen_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen/
 
