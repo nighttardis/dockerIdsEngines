@@ -52,4 +52,9 @@ docker pull decodedtechsolutions/docker-snort-2.9.7.2
 docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
 docker rmi decodedtechsolutions/docker-snort-2.9.7.2
 
+# get docker-snort-2.9.7.2_openappid
+docker pull decodedtechsolutions/docker-snort-2.9.7.2_openappid
+docker tag decodedtechsolutions/docker-snort-2.9.7.2_openappid snort-2.9.7.2_openappid
+docker rmi decodedtechsolutions/docker-snort-2.9.7.2_openappid
+
 ./update_ruleset.sh
