@@ -43,8 +43,13 @@ fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
 # get docker-snort-2.9.6.0
-docker pull brandondecodedtechsolutions/docker-snort-2.9.6.0
-docker tag brandondecodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
-docker rmi brandondecodedtechsolutions/docker-snort-2.9.6.0
+docker pull decodedtechsolutions/docker-snort-2.9.6.0
+docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
+docker rmi decodedtechsolutions/docker-snort-2.9.6.0
+
+# get docker-snort-2.9.7.2
+docker pull decodedtechsolutions/docker-snort-2.9.7.2
+docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
+docker rmi decodedtechsolutions/docker-snort-2.9.7.2
 
 ./update_ruleset.sh
