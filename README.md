@@ -19,6 +19,14 @@ The run_engine.sh script runs a docker container of your choice, mapping two hos
 -	Gets mounted to /usr/local/etc/dockerIdsEngines/ when the container is built
 -	Maintaining the rulesets and configurations on the host ensures that changes are pushed to containers when they are created
 -	As additional engines become supported, I will ensure that they are created when running easy_button.sh
+
+~~Currently, no ruleset is provided.  It is entirely up to the user to place an appropriate configuration and rule files on the host system. ~~
+You can optionally run the update_ruleset.sh to pull down the default ETOpen ruleset.  A sane default configuration is provided in this repo
+
+Place your own ruleset in the following directory
+-	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]
+
+To add your own rules to the rulset, include a local.rules in the same directory.
 	
 `/usr/local/etc/dockerIdsEngines/pcaps`
 
@@ -31,9 +39,6 @@ After cloning the repo, simply run the ./easy-button.sh script.
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed. 
 Add the --install-docker flag to install docker.
 
-Currently, no ruleset is provided.  It is entirely up to the user to place an appropriate configuration and rule files on the host system. 
-Place your ruleset in the following directory
--	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]
 	
 Once you have the ruleset and pcaps in the correct folder you can call the IDS engine as such. 
 

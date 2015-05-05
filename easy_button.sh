@@ -47,3 +47,4 @@ docker pull brandondecodedtechsolutions/docker-snort-2.9.6.0
 docker tag brandondecodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
 docker rmi brandondecodedtechsolutions/docker-snort-2.9.6.0
 
+./update_ruleset.sh
