@@ -33,7 +33,7 @@ To add your own rules to the rulset, include a local.rules in the same directory
 
 ## How-To ##
 
-After cloning the repo, simply run the ./easy-button.sh script.
+After cloning the repo, simply run the ./easy-button.sh script.  
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
 Add the --install-docker flag to install docker.  
 
