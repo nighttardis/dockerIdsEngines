@@ -22,7 +22,7 @@ The run_engine.sh script runs a docker container of your choice, mapping two hos
 
 
 Place your own ruleset in the following directory
--	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]
+-	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]  
 
 To add your own rules to the rulset, include a local.rules in the same directory.
 	
@@ -34,8 +34,8 @@ To add your own rules to the rulset, include a local.rules in the same directory
 ## How-To ##
 
 After cloning the repo, simply run the ./easy-button.sh script.
-The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed. 
-Add the --install-docker flag to install docker.
+The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
+Add the --install-docker flag to install docker.  
 
 The update_ruleset.sh script pulls down the default ETOpen ruleset.  A sane default configuration is provided in this repo  
 update_ruleset.sh is run during the easy_button.sh script to allow for ease of use during intial setup.  
