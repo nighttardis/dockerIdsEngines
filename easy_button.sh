@@ -77,9 +77,9 @@ fi
 # get docker-snort-2.9.7.2_openappid
 if [ "$docker-snort-2.9.7.2_openappid" = "YES" ] || [ "$install-all-images" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2_openappid"
-    docker pull decodedtechsolutions/docker-snort-2.9.7.2_openappid
-    docker tag decodedtechsolutions/docker-snort-2.9.7.2_openappid snort-2.9.7.2_openappid
-    docker rmi decodedtechsolutions/docker-snort-2.9.7.2_openappid
+    docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
+    docker tag decodedtechsolutions/docker-snort-2.9.7.2-openappid snort-2.9.7.2_openappid
+    docker rmi decodedtechsolutions/docker-snort-2.9.7.2-openappid
 fi
 
 ./update_ruleset.sh
