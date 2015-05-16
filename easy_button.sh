@@ -10,21 +10,21 @@ case $key in
     INSTALL_DOCKER="YES"
 	shift
     ;;
-	--docker-snort-2.9.6.0)
-    docker-snort-2.9.6.0="YES"
-	shift
+    --docker-snort-2.9.6.0)
+    DOCKER-SNORT-2.9.6.0="YES"
+    shift
     ;;	
-	--docker-snort-2.9.7.2)
-    docker-snort-2.9.7.2="YES"
-	shift
+    --docker-snort-2.9.7.2)
+    DOCKER_SNORT_2.9.7.2="YES"
+    shift
     ;;
-	--docker-snort-2.9.7.2_openappid)
-    docker-snort-2.9.7.2_openappid="YES"
-	shift
+    --docker-snort-2.9.7.2_openappid)
+    DOCKER_SNORT_2.9.7.2_OPENAPPID="YES"
+    shift
     ;;
-	--install-all-images)
-    install-all-images="YES"
-	shift
+    --install-all-images)
+    INSTALL_ALL_IMAGES="YES"
+    shift
     ;;
 	*)
 	    echo "unknown"   # unknown option
@@ -59,7 +59,7 @@ fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
 # get docker-snort-2.9.6.0
-if [ "$docker-snort-2.9.6.0" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+if [ "$DOCKER-SNORT-2.9.6.0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.6.0"
     docker pull decodedtechsolutions/docker-snort-2.9.6.0
     docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
@@ -67,7 +67,7 @@ if [ "$docker-snort-2.9.6.0" = "YES" ] || [ "$install-all-images" = "YES" ]; the
 fi
 
 # get docker-snort-2.9.7.2
-if [ "$docker-snort-2.9.7.2" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+if [ "$DOCKER_SNORT_2.9.7.2" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2"
     docker pull decodedtechsolutions/docker-snort-2.9.7.2
     docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
@@ -75,7 +75,7 @@ if [ "$docker-snort-2.9.7.2" = "YES" ] || [ "$install-all-images" = "YES" ]; the
 fi
 
 # get docker-snort-2.9.7.2_openappid
-if [ "$docker-snort-2.9.7.2_openappid" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+if [ "$DOCKER_SNORT_2.9.7.2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2_openappid"
     docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
     docker tag decodedtechsolutions/docker-snort-2.9.7.2-openappid snort-2.9.7.2_openappid

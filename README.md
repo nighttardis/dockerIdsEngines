@@ -41,6 +41,8 @@ Add the --docker-snort-2.9.7.2 to enable pulling down the snort-2.9.7.2 image
 Add the --docker-snort-2.9.7.2_openappid to enable pulling down the snort-2.9.7.2_openappid image  
 Add the --install-all-images to enable pulling down all images  
 
+If no --install-all-images or one of the docker-snort-* flags are set, no images will be pulled down
+
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
 
 
