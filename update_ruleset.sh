@@ -7,8 +7,10 @@
 
 # ETOpen Default Ruleset
 mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen/
-
+mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
+mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/openappid/
 chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen/
+chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # go get the latest ETOpen rules
 wget -q http://rules.emergingthreats.net/open/snort-2.9.0/emerging-all.rules --output-document policy.rules
@@ -20,7 +22,7 @@ rm policy.rules
 
 # Copy a default configurations
 cp ETOpen_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen/
-cp ETOpen_OpenAppID/* /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
+cp ETOpen_OpenAppID_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # snort openappid
 wget -q https://snort.org/downloads/openappid/1516 --output-document /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
