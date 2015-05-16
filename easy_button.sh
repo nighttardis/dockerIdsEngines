@@ -10,8 +10,24 @@ case $key in
     INSTALL_DOCKER="YES"
 	shift
     ;;
+	--docker-snort-2.9.6.0)
+    docker-snort-2.9.6.0="YES"
+	shift
+    ;;	
+	--docker-snort-2.9.7.2)
+    docker-snort-2.9.7.2="YES"
+	shift
+    ;;
+	--docker-snort-2.9.7.2_openappid)
+    docker-snort-2.9.7.2_openappid="YES"
+	shift
+    ;;
+	--install-all-images)
+    install-all-images="YES"
+	shift
+    ;;
 	*)
-         echo "unknown"   # unknown option
+	    echo "unknown"   # unknown option
     ;;
 esac
 shift
@@ -43,18 +59,27 @@ fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
 # get docker-snort-2.9.6.0
-docker pull decodedtechsolutions/docker-snort-2.9.6.0
-docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
-docker rmi decodedtechsolutions/docker-snort-2.9.6.0
+if [ "$docker-snort-2.9.6.0" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+	echo "pulling docker-snort-2.9.6.0"
+    docker pull decodedtechsolutions/docker-snort-2.9.6.0
+    docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
+    docker rmi decodedtechsolutions/docker-snort-2.9.6.0
+fi
 
 # get docker-snort-2.9.7.2
-docker pull decodedtechsolutions/docker-snort-2.9.7.2
-docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
-docker rmi decodedtechsolutions/docker-snort-2.9.7.2
+if [ "$docker-snort-2.9.7.2" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+	echo "pulling docker-snort-2.9.7.2"
+    docker pull decodedtechsolutions/docker-snort-2.9.7.2
+    docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
+    docker rmi decodedtechsolutions/docker-snort-2.9.7.2
+fi
 
 # get docker-snort-2.9.7.2_openappid
-docker pull decodedtechsolutions/docker-snort-2.9.7.2_openappid
-docker tag decodedtechsolutions/docker-snort-2.9.7.2_openappid snort-2.9.7.2_openappid
-docker rmi decodedtechsolutions/docker-snort-2.9.7.2_openappid
+if [ "$docker-snort-2.9.7.2_openappid" = "YES" ] || [ "$install-all-images" = "YES" ]; then
+	echo "pulling docker-snort-2.9.7.2_openappid"
+    docker pull decodedtechsolutions/docker-snort-2.9.7.2_openappid
+    docker tag decodedtechsolutions/docker-snort-2.9.7.2_openappid snort-2.9.7.2_openappid
+    docker rmi decodedtechsolutions/docker-snort-2.9.7.2_openappid
+fi
 
 ./update_ruleset.sh
