@@ -1,19 +1,18 @@
 #!/bin/bash
 
-while [[ $# -ge 1 ]]
+while [[ $# > 0 ]]
 do
-
 key="$1"
 
 case $key in
-    -i|--install-docker)
+    --install-docker)
     INSTALL_DOCKER="YES"
-	shift
+    shift
     ;;
     --docker-snort-2.9.6.0)
     DOCKER-SNORT-2.9.6.0="YES"
     shift
-    ;;	
+    ;;
     --docker-snort-2.9.7.2)
     DOCKER_SNORT_2.9.7.2="YES"
     shift
@@ -22,16 +21,22 @@ case $key in
     DOCKER_SNORT_2.9.7.2_OPENAPPID="YES"
     shift
     ;;
-    --install-all-images)
+    --install-all)
+    INSTALL_ALL_IMAGES="YES"
+    INSTALL_DOCKER="YES"
+    shift
+    ;;
+    --install-images)
     INSTALL_ALL_IMAGES="YES"
     shift
     ;;
-	*)
-	    echo "unknown"   # unknown option
+    *)
+    echo "unknown"   # unknown option
     ;;
 esac
 shift
 done
+
 # check for root permissions
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
