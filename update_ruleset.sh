@@ -13,7 +13,7 @@ chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen/
 chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # go get the latest ETOpen rules
-wget -q https://rules.emergingthreats.net/open/snort-2.9.0/emerging-all.rules --output-document --output-document policy.rules
+wget -q https://rules.emergingthreats.net/open/snort-2.9.0/emerging-all.rules --output-document policy.rules
 
 
 # move the ETOpen rules to the default ETOpen rulesets
