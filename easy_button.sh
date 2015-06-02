@@ -45,18 +45,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-
-# set UTC timestamp
-# mv /etc/localtime /etc/localtime.bak
-# ln -s /usr/share/zoneinfo/UTC /etc/localtime
-
-# install docker
-if [ "$INSTALL_DOCKER" = "YES" ]; then
-	echo "Installing docker"
-	wget -qO- https://get.docker.com/ | sh
-	usermod -aG docker "$(id -un 2>/dev/null || true)"
-fi
-
 if [ "$SETUP_PROXY" = "YES" ]; then
 	echo "Proxy Setup Initiated"
 	echo "This will add the proxy to the docker config at /etc/default/docker"
@@ -73,9 +61,24 @@ if [ "$SETUP_PROXY" = "YES" ]; then
         echo "Passwords do not match. Please try again"
     done
     
-	echo "export http_proxy=\"http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS\"" >> /etc/default/docker
-	# export the proxy here as well so the update_rulset.sh will work.
+	# export the proxy here so the install-docker and update_rulset.sh will work.
 	export http_proxy=\"http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS\"
+fi
+
+# set UTC timestamp
+# mv /etc/localtime /etc/localtime.bak
+# ln -s /usr/share/zoneinfo/UTC /etc/localtime
+
+# install docker
+if [ "$INSTALL_DOCKER" = "YES" ]; then
+	echo "Installing docker"
+	wget -qO- https://get.docker.com/ | sh
+	usermod -aG docker "$(id -un 2>/dev/null || true)"
+fi
+
+
+if [ "$SETUP_PROXY" = "YES" ]; then
+	echo "export http_proxy=\"http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS\"" >> /etc/default/docker
 	echo "restarting docker to make proxy change take effect"
 	service docker restart
 fi

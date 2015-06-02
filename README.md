@@ -30,21 +30,22 @@ To add your own rules to the rulset, include a local.rules in the same directory
 
 -	This folder is designed to hold the pcaps that you will be running through the IDS Engine  
 -	Gets mounted to /tmp when the container is built  
+-	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/05/11/index.html - Thanks Brad for all the awesome write ups you do!
 
 ## How-To ##
 
 #### easy_button.sh ####
 After cloning the repo, simply run the ./easy_button.sh script.  
-Add the --install-all flag to install docker and all the images
-Add the --install-docker flag to install docker.  
-Add the --install-images to enable pulling down all images  
-Add the --proxy-setup to prompt for proxy configuration 
-Add the --docker-snort-2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
-Add the --docker-snort-2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
-Add the --docker-snort-2.9.7.2-openappid to enable pulling down the snort-2.9.7.2_openappid image  
+`--install-all` install docker and all the images
+`--install-docker` install docker.  
+`--install-images` enable pulling down all images  
+`--proxy-setup` prompt for proxy configuration 
+`--docker-snort-2.9.6.0` enable pulling down the snort-2.9.6.0 image  
+`--docker-snort-2.9.7.2` enable pulling down the snort-2.9.7.2 image  
+`--docker-snort-2.9.7.2-openappid` enable pulling down the snort-2.9.7.2_openappid image  
  
 
-If no --install_images or one of the docker-snort-* flags are set, no images will be pulled down.  
+If no --install-images or one of the docker-snort-* flags are set, no images will be pulled down.  
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
 
 
@@ -71,4 +72,4 @@ update_ruleset.sh is run during the easy_button.sh script to allow for ease of u
 
 ## Examples
 
-> ./run_engine.sh -i brandondecodedtechsolutions/snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q"
+> ./run_engine.sh -i brandondecodedtechsolutions/docker-snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q"

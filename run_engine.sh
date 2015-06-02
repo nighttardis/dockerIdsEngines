@@ -9,10 +9,10 @@ if [ $# -eq 0 ]; then
         HELP="YES"
 fi
 
+#for key in "$@"
 while [[ $# > 0 ]]
 do
 key="$1"
-
 case $key in
     -i|--image)
     IMAGE="$2"
@@ -28,9 +28,9 @@ case $key in
     ;;
     -p|--pcap)
     PCAP="$2"
-    if [ ! -f /usr/local/etc/dockerIdsEngines/pcaps/"$PCAP" ] ; then
+    if [ ! -f "$(pwd)"/pcaps/"$PCAP" ] ; then
         echo "PCAP FILE NOT FOUND"
-        echo "/usr/local/etc/dockerIdsEngines/pcaps/"$PCAP" does not exist"
+        echo "./pcaps/"$PCAP" does not exist"
         exit 1
     fi
     shift
@@ -49,7 +49,7 @@ case $key in
 esac
 shift
 done
-
+#exit
 # ensure engine is set and a supported engined options are there
 if [ -z "$ENGINE" ] ; then
     HELP="YES"
@@ -89,7 +89,7 @@ exit 1;
 fi
 
 if [ "$ENGINE" = "snort" ]; then
-    docker run --rm -v ./policies/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v ./pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console "$EXTRAS"
+    docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v "$(pwd)"/pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console "$EXTRAS"
 elif [ "$ENGINE" = "suricata" ];  then
         echo 'run suricata'
 fi
