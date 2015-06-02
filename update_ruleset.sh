@@ -5,27 +5,18 @@
 # TODO - support for adding new sources
 # TODO - support for removing sources
 
-# ETOpen Default Ruleset
-mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen/
-mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
-mkdir --parents /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/openappid/
-chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen/
-chown :docker /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # go get the latest ETOpen rules
 wget -q https://rules.emergingthreats.net/open/snort-2.9.0/emerging-all.rules --output-document policy.rules
 
 
 # move the ETOpen rules to the default ETOpen rulesets
-cp policy.rules /usr/local/etc/dockerIdsEngines/snort/ETOpen/policy.rules
-cp policy.rules /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/policy.rules
+cp policy.rules ./policies/snort/ETOpen/policy.rules
+cp policy.rules ./policies/snort/ETOpen_OpenAppID/policy.rules
 rm policy.rules
 
-# Copy a default configurations
-cp ETOpen_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen/
-cp ETOpen_OpenAppID_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # snort openappid
-wget -q https://snort.org/downloads/openappid/1793 --output-document /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
-tar zxf /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz -C /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/openappid/
+wget -q https://snort.org/downloads/openappid/1793 --output-document ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
+tar zxf ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz -C ./policies/snort/ETOpen_OpenAppID/openappid/
 

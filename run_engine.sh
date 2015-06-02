@@ -67,9 +67,9 @@ if [ -z "$RULESET" ] ; then
     echo "-r|--ruleset flag missing"
 fi
 
-if [ ! -d /usr/local/etc/dockerIdsEngines/"$ENGINE"/"$RULESET" ] ; then
+if [ ! -d ./policies/"$ENGINE"/"$RULESET" ] ; then
     echo "RULESET NOT FOUND"
-    echo "Ruleset Directory /usr/local/etc/dockerIdsEngines/"$ENGINE"/"$RULESET" does not exist"
+    echo "Ruleset Directory ./policies/"$ENGINE"/"$RULESET" does not exist"
     exit 1
 fi
 
@@ -89,7 +89,7 @@ exit 1;
 fi
 
 if [ "$ENGINE" = "snort" ]; then
-    docker run --rm -v /usr/local/etc/dockerIdsEngines/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v /usr/local/etc/dockerIdsEngines/pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console "$EXTRAS"
+    docker run --rm -v ./policies/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v ./pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console "$EXTRAS"
 elif [ "$ENGINE" = "suricata" ];  then
         echo 'run suricata'
 fi

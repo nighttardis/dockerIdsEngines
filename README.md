@@ -13,20 +13,20 @@ This is useful to testing out how different IDS engines handle a pcap or for tes
 
 The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.
 
-`/usr/local/etc/dockerIdsEngines/[enginename]/[ruleset name]`
+`./Policies/[enginename]/[ruleset name]`
 
--	This folder is  designed to maintain your IDS Engine configurations
+-	This folder is designed to maintain your IDS Engine configurations
 -	Gets mounted to /usr/local/etc/dockerIdsEngines/ when the container is built
 -	Maintaining the rulesets and configurations on the host ensures that changes are pushed to containers when they are created
 -	As additional engines become supported, I will ensure that they are created when running easy_button.sh
 
 
 Place your own ruleset in the following directory
--	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]  
+-	./Policies/[enginename]/[ruleset name of your choice]  
 
 To add your own rules to the rulset, include a local.rules in the same directory.  
 	
-`/usr/local/etc/dockerIdsEngines/pcaps`
+`./pcaps`
 
 -	This folder is designed to hold the pcaps that you will be running through the IDS Engine  
 -	Gets mounted to /tmp when the container is built  
@@ -35,16 +35,18 @@ To add your own rules to the rulset, include a local.rules in the same directory
 
 #### easy_button.sh ####
 After cloning the repo, simply run the ./easy_button.sh script.  
-Add the --install-docker flag to install docker.  
-Add the --docker-snort-2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
-Add the --docker-snort-2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
-Add the --docker-snort-2.9.7.2_openappid to enable pulling down the snort-2.9.7.2_openappid image  
-Add the --install-all-images to enable pulling down all images  
+Add the --install_all flag to install docker and all the images
+Add the --install_docker flag to install docker.  
+Add the --install_images to enable pulling down all images  
+Add the --proxy_setup to prompt for proxy configuration 
+Add the --docker_snort_2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
+Add the --docker_snort_2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
+Add the --docker_snort_2.9.7.2_openappid to enable pulling down the snort-2.9.7.2_openappid image  
+ 
 
-
-If no --install-all-images or one of the docker-snort-* flags are set, no images will be pulled down
-
+If no --install_images or one of the docker-snort-* flags are set, no images will be pulled down.  
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
+
 
 
 #### update_ruleset.sh ####
