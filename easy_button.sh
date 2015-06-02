@@ -5,32 +5,32 @@ do
 key="$1"
 
 case $key in
-    --install_docker)
+    --install-docker)
     INSTALL_DOCKER="YES"
     shift
     ;;
-    --docker_snort_2.9.6.0)
+    --docker-snort-2.9.6.0)
     DOCKER-SNORT-2.9.6.0="YES"
     shift
     ;;
-    --docker_snort_2.9.7.2)
+    --docker-snort-2.9.7.2)
     DOCKER_SNORT_2.9.7.2="YES"
     shift
     ;;
-    --docker_snort_2.9.7.2_openappid)
+    --docker-snort-2.9.7.2-openappid)
     DOCKER_SNORT_2.9.7.2_OPENAPPID="YES"
     shift
     ;;
-    --install_all)
+    --install-all)
     INSTALL_ALL_IMAGES="YES"
     INSTALL_DOCKER="YES"
     shift
     ;;
-    --install_images)
+    --install-images)
     INSTALL_ALL_IMAGES="YES"
     shift
     ;;
-    --proxy_setup)
+    --proxy-setup)
     SETUP_PROXY="YES"
     shift
     ;;

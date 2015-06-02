@@ -35,13 +35,13 @@ To add your own rules to the rulset, include a local.rules in the same directory
 
 #### easy_button.sh ####
 After cloning the repo, simply run the ./easy_button.sh script.  
-Add the --install_all flag to install docker and all the images
-Add the --install_docker flag to install docker.  
-Add the --install_images to enable pulling down all images  
-Add the --proxy_setup to prompt for proxy configuration 
-Add the --docker_snort_2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
-Add the --docker_snort_2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
-Add the --docker_snort_2.9.7.2_openappid to enable pulling down the snort-2.9.7.2_openappid image  
+Add the --install-all flag to install docker and all the images
+Add the --install-docker flag to install docker.  
+Add the --install-images to enable pulling down all images  
+Add the --proxy-setup to prompt for proxy configuration 
+Add the --docker-snort-2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
+Add the --docker-snort-2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
+Add the --docker-snort-2.9.7.2-openappid to enable pulling down the snort-2.9.7.2_openappid image  
  
 
 If no --install_images or one of the docker-snort-* flags are set, no images will be pulled down.  
