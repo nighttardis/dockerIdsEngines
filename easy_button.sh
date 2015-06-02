@@ -1,9 +1,7 @@
 #!/bin/bash
 
-while [[ $# > 0 ]]
+for key in "$@"
 do
-key="$1"
-
 case $key in
     --install-docker)
     INSTALL_DOCKER="YES"
