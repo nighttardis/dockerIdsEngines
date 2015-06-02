@@ -25,6 +25,6 @@ cp ETOpen_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen/
 cp ETOpen_OpenAppID_conf/* /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/
 
 # snort openappid
-wget -q https://snort.org/downloads/openappid/1516 --output-document /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
+wget -q https://snort.org/downloads/openappid/1793 --output-document /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
 tar zxf /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/snort-openappid.tar.gz -C /usr/local/etc/dockerIdsEngines/snort/ETOpen_OpenAppID/openappid/
 
