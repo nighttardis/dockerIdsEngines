@@ -1,21 +1,42 @@
 #!/bin/bash
 
-while [[ $# -ge 1 ]]
+while [[ $# > 0 ]]
 do
-
 key="$1"
 
 case $key in
-    -i|--install-docker)
+    --install-docker)
     INSTALL_DOCKER="YES"
-	shift
+    shift
     ;;
-	*)
-         echo "unknown"   # unknown option
+    --docker-snort-2.9.6.0)
+    DOCKER-SNORT-2.9.6.0="YES"
+    shift
+    ;;
+    --docker-snort-2.9.7.2)
+    DOCKER_SNORT_2.9.7.2="YES"
+    shift
+    ;;
+    --docker-snort-2.9.7.2_openappid)
+    DOCKER_SNORT_2.9.7.2_OPENAPPID="YES"
+    shift
+    ;;
+    --install-all)
+    INSTALL_ALL_IMAGES="YES"
+    INSTALL_DOCKER="YES"
+    shift
+    ;;
+    --install-images)
+    INSTALL_ALL_IMAGES="YES"
+    shift
+    ;;
+    *)
+    echo "unknown"   # unknown option
     ;;
 esac
 shift
 done
+
 # check for root permissions
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -43,13 +64,27 @@ fi
 chown -R :docker /usr/local/etc/dockerIdsEngines
 
 # get docker-snort-2.9.6.0
-docker pull decodedtechsolutions/docker-snort-2.9.6.0
-docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
-docker rmi decodedtechsolutions/docker-snort-2.9.6.0
+if [ "$DOCKER-SNORT-2.9.6.0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-snort-2.9.6.0"
+    docker pull decodedtechsolutions/docker-snort-2.9.6.0
+    docker tag decodedtechsolutions/docker-snort-2.9.6.0 snort-2.9.6.0
+    docker rmi decodedtechsolutions/docker-snort-2.9.6.0
+fi
 
 # get docker-snort-2.9.7.2
-docker pull decodedtechsolutions/docker-snort-2.9.7.2
-docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
-docker rmi decodedtechsolutions/docker-snort-2.9.7.2
+if [ "$DOCKER_SNORT_2.9.7.2" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-snort-2.9.7.2"
+    docker pull decodedtechsolutions/docker-snort-2.9.7.2
+    docker tag decodedtechsolutions/docker-snort-2.9.7.2 snort-2.9.7.2
+    docker rmi decodedtechsolutions/docker-snort-2.9.7.2
+fi
+
+# get docker-snort-2.9.7.2_openappid
+if [ "$DOCKER_SNORT_2.9.7.2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-snort-2.9.7.2_openappid"
+    docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
+    docker tag decodedtechsolutions/docker-snort-2.9.7.2-openappid snort-2.9.7.2_openappid
+    docker rmi decodedtechsolutions/docker-snort-2.9.7.2-openappid
+fi
 
 ./update_ruleset.sh

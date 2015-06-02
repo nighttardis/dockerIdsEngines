@@ -2,7 +2,7 @@
 
 The purpose of this effort is to offer easily deployed docker containers for running a pcap through multiple IDS engines
 
-This is useful to testing out how different IDS engines handle a pcap or for testing mutliple version of the same IDS engine. 
+This is useful to testing out how different IDS engines handle a pcap or for testing multiple version of the same IDS engine. 
 
 ## Features ##
 *	Support for multiple IDS Engines (snort, suri, bro, whatever else)
@@ -24,20 +24,32 @@ The run_engine.sh script runs a docker container of your choice, mapping two hos
 Place your own ruleset in the following directory
 -	/usr/local/etc/dockerIDSEngines/[enginename]/[ruleset name of your choice]  
 
-To add your own rules to the rulset, include a local.rules in the same directory.
+To add your own rules to the rulset, include a local.rules in the same directory.  
 	
 `/usr/local/etc/dockerIdsEngines/pcaps`
 
--	This folder is designed to hold the pcaps that you will be running through the IDS Engine
--	Gets mounted to /tmp when the container is built
+-	This folder is designed to hold the pcaps that you will be running through the IDS Engine  
+-	Gets mounted to /tmp when the container is built  
 
 ## How-To ##
 
-After cloning the repo, simply run the ./easy-button.sh script.  
+#### easy_button.sh ####
+After cloning the repo, simply run the ./easy_button.sh script.  
+Add the --install-docker flag to install docker.  
+Add the --docker-snort-2.9.6.0 to enable pulling down the snort-2.9.6.0 image  
+Add the --docker-snort-2.9.7.2 to enable pulling down the snort-2.9.7.2 image  
+Add the --docker-snort-2.9.7.2_openappid to enable pulling down the snort-2.9.7.2_openappid image  
+Add the --install-all-images to enable pulling down all images  
 
 
+If no --install-all-images or one of the docker-snort-* flags are set, no images will be pulled down
+
+The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  
+
+
+#### update_ruleset.sh ####
 The update_ruleset.sh script pulls down the default ETOpen ruleset.  A sane default configuration is provided in this repo  
-update_ruleset.sh is run during the easy_button.sh script to allow for ease of use during intial setup.  
+update_ruleset.sh is run during the easy_button.sh script to allow for ease of use during initial setup.  
 
 	
 ### Usage: $0 -i [image_name] -e [engine] -r [ruleset] -p [pcap] -x [extra options]
