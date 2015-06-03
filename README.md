@@ -36,10 +36,10 @@ To add your own rules to the rulset, include a local.rules in the same directory
 
 #### easy_button.sh ####
 After cloning the repo, simply run the ./easy_button.sh script.  
-`--install-all` install docker and all the images
+`--install-all` install docker and all the images  
 `--install-docker` install docker.  
 `--install-images` enable pulling down all images  
-`--proxy-setup` prompt for proxy configuration 
+`--proxy-setup` prompt for proxy configuration  
 `--docker-snort-2.9.6.0` enable pulling down the snort-2.9.6.0 image  
 `--docker-snort-2.9.7.2` enable pulling down the snort-2.9.7.2 image  
 `--docker-snort-2.9.7.2-openappid` enable pulling down the snort-2.9.7.2_openappid image  
@@ -72,4 +72,4 @@ update_ruleset.sh is run during the easy_button.sh script to allow for ease of u
 
 ## Examples
 
-> ./run_engine.sh -i brandondecodedtechsolutions/docker-snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q"
+> ./run_engine.sh -i decodedtechsolutions/docker-snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q"

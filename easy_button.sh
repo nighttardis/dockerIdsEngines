@@ -8,15 +8,15 @@ case $key in
     shift
     ;;
     --docker-snort-2.9.6.0)
-    DOCKER-SNORT-2.9.6.0="YES"
+    DOCKER-SNORT-2_9_6_0="YES"
     shift
     ;;
     --docker-snort-2.9.7.2)
-    DOCKER_SNORT_2.9.7.2="YES"
+    DOCKER_SNORT_2_9_7_2="YES"
     shift
     ;;
     --docker-snort-2.9.7.2-openappid)
-    DOCKER_SNORT_2.9.7.2_OPENAPPID="YES"
+    DOCKER_SNORT_2_9_7_2_OPENAPPID="YES"
     shift
     ;;
     --install-all)
@@ -84,21 +84,21 @@ if [ "$SETUP_PROXY" = "YES" ]; then
 fi
 
 # get docker-snort-2.9.6.0
-if [ "$DOCKER-SNORT-2.9.6.0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+if [ "$DOCKER-SNORT-2_9_6_0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.6.0"
     docker pull decodedtechsolutions/docker-snort-2.9.6.0
 
 fi
 
 # get docker-snort-2.9.7.2
-if [ "$DOCKER_SNORT_2.9.7.2" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+if [ "$DOCKER_SNORT_2_9_7_2" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2"
     docker pull decodedtechsolutions/docker-snort-2.9.7.2
 
 fi
 
 # get docker-snort-2.9.7.2_openappid
-if [ "$DOCKER_SNORT_2.9.7.2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+if [ "$DOCKER_SNORT_2_9_7_2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2_openappid"
     docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
 
