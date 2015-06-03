@@ -13,18 +13,18 @@ This is useful to testing out how different IDS engines handle a pcap or for tes
 
 The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.
 
-`./policies/[enginename]/[ruleset name]`
+`./policies/[engine name]/[ruleset name]`
 
 -	This folder is designed to maintain your IDS Engine configurations
--	Gets mounted to /usr/local/etc/dockerIdsEngines/ when the container is built
+-	Gets mounted to /usr/local/etc/[engine name]/[ruleset name] when the container is built
 -	Maintaining the rulesets and configurations on the host ensures that changes are pushed to containers when they are created
 -	As additional engines become supported, I will ensure that they are created when running easy_button.sh
 
 
 Place your own ruleset in the following directory
--	./Policies/[enginename]/[ruleset name of your choice]  
+-	./Policies/[engine name]/[ruleset name of your choice]  
 
-To add your own rules to the rulset, include a local.rules in the same directory.  
+To add your own rules to the ruleset, include a local.rules in the same directory.  
 	
 `./pcaps`
 

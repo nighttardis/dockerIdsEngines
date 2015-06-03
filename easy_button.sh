@@ -62,8 +62,11 @@ if [ "$SETUP_PROXY" = "YES" ]; then
     done
     
 	# export the proxy here so the install-docker and update_rulset.sh will work.
-	export http_proxy=\"http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS\"
+	export http_proxy=http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS
+	export http_proxy=http://$PROXY_USERNAME:$PROXY_PASSWORD_1@$PROXY_ADDRESS
+
 fi
+
 
 # set UTC timestamp
 # mv /etc/localtime /etc/localtime.bak
