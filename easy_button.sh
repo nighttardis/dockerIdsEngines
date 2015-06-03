@@ -76,7 +76,7 @@ fi
 if [ "$INSTALL_DOCKER" = "YES" ]; then
 	echo "Installing docker"
 	wget -qO- https://get.docker.com/ | sh
-	usermod -aG docker "$(id -un 2>/dev/null || true)"
+	usermod -aG docker "$(who | awk '{print $1}')"
 fi
 
 
