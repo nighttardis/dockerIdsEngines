@@ -8,7 +8,7 @@ case $key in
     shift
     ;;
     --docker-snort-2.9.6.0)
-    DOCKER-SNORT-2_9_6_0="YES"
+    DOCKER_SNORT_2_9_6_0="YES"
     shift
     ;;
     --docker-snort-2.9.7.2)
@@ -84,7 +84,7 @@ if [ "$SETUP_PROXY" = "YES" ]; then
 fi
 
 # get docker-snort-2.9.6.0
-if [ "$DOCKER-SNORT-2_9_6_0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+if [ "$DOCKER_SNORT_2_9_6_0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.6.0"
     docker pull decodedtechsolutions/docker-snort-2.9.6.0
 

@@ -13,7 +13,7 @@ This is useful to testing out how different IDS engines handle a pcap or for tes
 
 The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.
 
-`./Policies/[enginename]/[ruleset name]`
+`./policies/[enginename]/[ruleset name]`
 
 -	This folder is designed to maintain your IDS Engine configurations
 -	Gets mounted to /usr/local/etc/dockerIdsEngines/ when the container is built
