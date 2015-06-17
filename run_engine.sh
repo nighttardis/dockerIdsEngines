@@ -89,7 +89,7 @@ exit 1;
 fi
 
 if [ "$ENGINE" = "snort" ]; then
-    docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v "$(pwd)"/pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console "$EXTRAS"
+    docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v "$(pwd)"/pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/snort/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console $EXTRAS
 elif [ "$ENGINE" = "suricata" ];  then
         echo 'run suricata'
 fi
