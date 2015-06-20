@@ -19,6 +19,10 @@ case $key in
     DOCKER_SNORT_2_9_7_2_OPENAPPID="YES"
     shift
     ;;
+	--docker-suricata-2.0.8
+	DOCKER_SURICATA_2_0_8="YES"
+	shift
+	;;
     --install-all)
     INSTALL_ALL_IMAGES="YES"
     INSTALL_DOCKER="YES"
@@ -105,6 +109,11 @@ if [ "$DOCKER_SNORT_2_9_7_2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "Y
 	echo "pulling docker-snort-2.9.7.2_openappid"
     docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
 
+fi
+
+if [ "$DOCKER_SURICATA_2_0_8" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-suricata-2.0.8"
+    docker pull decodedtechsolutions/docker-suricata-2.0.8
 fi
 
 ./update_ruleset.sh
