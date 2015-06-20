@@ -11,9 +11,9 @@ This is useful to testing out how different IDS engines handle a pcap or for tes
 
 ## Design ##
 
-The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.
+The run_engine.sh script runs a docker container of your choice, mapping two host directories into the container.  
 
-`./policies/[engine name]/[ruleset name]`
+`./policies/[engine name]/[ruleset name]`  
 
 -	This folder is designed to maintain your IDS Engine configurations
 -	Gets mounted to /usr/local/etc/[engine name]/[ruleset name] when the container is built
@@ -30,7 +30,13 @@ To add your own rules to the ruleset, include a local.rules in the same director
 
 -	This folder is designed to hold the pcaps that you will be running through the IDS Engine  
 -	Gets mounted to /tmp when the container is built  
--	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/05/11/index.html - Thanks Brad for all the awesome write ups you do!
+-	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/05/11/index.html - Thanks Brad for all the awesome write ups you do!  
+
+`./logs`
+-   This folder is designed to hold the logs the engine produces  
+-   Gets mounted to /var/log/[engine name]  
+-   each run of the engine will create an additional log directory in the format of YYYYMMDD-HHMMSS_[pcap name]  
+-   If you build your own ruleset and want the logs to be stored back on the host, make sure you set your log dir on the engine's config file to /var/log/[engine name]  
 
 ## How-To ##
 
@@ -43,7 +49,7 @@ After cloning the repo, simply run the ./easy_button.sh script.
 `--docker-snort-2.9.6.0` enable pulling down the snort-2.9.6.0 image  
 `--docker-snort-2.9.7.2` enable pulling down the snort-2.9.7.2 image  
 `--docker-snort-2.9.7.2-openappid` enable pulling down the snort-2.9.7.2_openappid image  
- 
+`--docker-suricata-2.0.8`  enable pulling down the suricata-2.0.8 image  
 
 If no --install-images or one of the docker-snort-* flags are set, no images will be pulled down.  
 The easy button script has been tested on ubuntu 14.04 and by default it assumes already have docker installed.  

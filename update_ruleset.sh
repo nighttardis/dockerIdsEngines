@@ -7,7 +7,7 @@
 
 
 # go get the latest ETOpen rules
-http://rules.emergingthreats.net/open/snort-2.9.0/emerging.rules.tar.gz --output-document - | tar -xzOf - --wildcards --no-anchored '*.rules' > snort-policy.rules
+wget -q http://rules.emergingthreats.net/open/snort-2.9.0/emerging.rules.tar.gz --output-document - | tar -xzOf - --wildcards --no-anchored '*.rules' > snort-policy.rules
 
 
 # move the ETOpen rules to the default ETOpen rulesets
@@ -22,5 +22,5 @@ tar zxf ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz -C ./policies/s
 
 
 wget -q http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz --output-document - | tar -xzOf - --wildcards --no-anchored '*.rules' > suricata-policy.rules
-cp suricata-policy.rules ./policies/suricata/ETOpen/policy.rules
+cp suricata-policy.rules ./policies/suricata/ETOpen/rules/policy.rules
 rm suricata-policy.rules

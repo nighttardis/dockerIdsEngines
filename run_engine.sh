@@ -91,8 +91,7 @@ fi
 LOGDIR=$(date +%Y%m%d-%H%M%S)
 
 if [ "$ENGINE" = "snort" ]; then
-    docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v "$(pwd)"/pcaps/:/tmp/ "$IMAGE" "$ENGINE" -c /usr/local/etc/"$ENGINE"/"$RULESET"/snort.conf -N -r /tmp/"$PCAP" -H -A console $EXTRAS
+    docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE" -v "$(pwd)"/pcaps/:/tmp/ -v "$(pwd)"/logs/"$ENGINE"/"$LOGDIR"_"$PCAP":/var/logs/"$ENGINE"/ "$IMAGE" "$ENGINE" -c /usr/local/etc/"$ENGINE"/snort.conf -r /tmp/"$PCAP" -H -A console $EXTRAS
 elif [ "$ENGINE" = "suricata" ];  then
-    mkdir -p ./logs/"$LOGDIR"_"$PCAP"
-	docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE"/"$RULESET" -v "$(pwd)"/pcaps/:/tmp/ -v "(pwd)"/logs/"$ENGINE"/"$LOGDIR"-"$PCAP"":/var/logs/"$ENGINE"/ "$IMAGE" "$ENGINE" -c /usr/local/etc/"$ENGINE"/"$RULESET"/suricata.yaml -r /tmp/"$PCAP" $EXTRAS
+	docker run --rm -v "$(pwd)"/policies/"$ENGINE"/"$RULESET":/usr/local/etc/"$ENGINE" -v "$(pwd)"/pcaps/:/tmp/ -v "$(pwd)"/logs/"$ENGINE"/"$LOGDIR"_"$PCAP":/var/logs/"$ENGINE"/ "$IMAGE" "$ENGINE" -c /usr/local/etc/"$ENGINE"/suricata.yaml -r /tmp/"$PCAP" $EXTRAS
 fi
