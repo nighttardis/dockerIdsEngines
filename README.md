@@ -30,7 +30,7 @@ To add your own rules to the ruleset, include a local.rules in the same director
 
 -	This folder is designed to hold the pcaps that you will be running through the IDS Engine  
 -	Gets mounted to /tmp when the container is built  
--	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/05/11/index.html - Thanks Brad for all the awesome write ups you do!  
+-	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/06/17/index.html - Thanks Brad for all the awesome write ups you do!  
 
 `./logs`
 -   This folder is designed to hold the logs the engine produces  
