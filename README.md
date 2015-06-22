@@ -82,3 +82,17 @@ To add your own rules to the ruleset, include a local.rules in the same director
   -  The configuration files as provided by the repo have unified2 output enabled.  
   -  I suggest you use a unified2 reader on the host to read them.   
   -  Check out py-idstools for an example  https://github.com/jasonish/py-idstools 
+
+## Docker Images Links ## 
+-   Snort 2.9.7.2 with OpenAppID support
+  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2_openappid 
+  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2-openappid/
+-   Snort 2.9.7.2
+  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2
+  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2/
+-   Snort 2.9.6.0
+  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.6.0
+  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.6.0/
+-   Suricata 
+  - https://bitbucket.org/decodedtechsolutions/docker-suricata-2.0.8
+  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-suricata-2.0.8/
