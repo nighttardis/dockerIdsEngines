@@ -60,8 +60,8 @@ The run_engine.sh script runs a docker container of your choice, mapping two hos
 -	Maintaining the rulesets and configurations on the host ensures that changes are pushed to containers when they are created
 -	As additional engines become supported, I will ensure that they are created when running easy_button.sh
 
-
 Place your own ruleset in the following directory
+
 -	./Policies/[engine name]/[ruleset name of your choice]  
 
 To add your own rules to the ruleset, include a local.rules in the same directory.  
@@ -73,6 +73,7 @@ To add your own rules to the ruleset, include a local.rules in the same director
 -	Included by default is a pcap from http://www.malware-traffic-analysis.net/2015/06/17/index.html - Thanks Brad for all the awesome write ups you do!  
 
 `./logs`
+
 -   This folder is designed to hold the logs the engine produces  
 -   Gets mounted to /var/log/[engine name]  
 -   each run of the engine will create an additional log directory in the format of YYYYMMDD-HHMMSS_[pcap name]  
@@ -83,16 +84,16 @@ To add your own rules to the ruleset, include a local.rules in the same director
   -  I suggest you use a unified2 reader on the host to read them.   
   -  Check out py-idstools for an example  https://github.com/jasonish/py-idstools 
 
-## Docker Images Links ## 
--   Snort 2.9.7.2 with OpenAppID support
+## Docker Images Links
+#### Snort 2.9.7.2 with OpenAppID support
   - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2_openappid 
   - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2-openappid/
--   Snort 2.9.7.2
+#### Snort 2.9.7.2
   - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2
   - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2/
--   Snort 2.9.6.0
+#### Snort 2.9.6.0
   - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.6.0
   - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.6.0/
--   Suricata 
+#### Suricata 
   - https://bitbucket.org/decodedtechsolutions/docker-suricata-2.0.8
   - https://registry.hub.docker.com/u/decodedtechsolutions/docker-suricata-2.0.8/
