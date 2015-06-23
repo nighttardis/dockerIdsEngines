@@ -19,7 +19,7 @@ case $key in
     DOCKER_SNORT_2_9_7_2_OPENAPPID="YES"
     shift
     ;;
-	--docker-suricata-2.0.8
+	--docker-suricata-2.0.8)
 	DOCKER_SURICATA_2_0_8="YES"
 	shift
 	;;
