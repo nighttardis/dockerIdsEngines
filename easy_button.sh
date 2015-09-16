@@ -107,7 +107,7 @@ fi
 # get docker-snort-2.9.7.2_openappid
 if [ "$DOCKER_SNORT_2_9_7_2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2_openappid"
-    docker pull zoomequipd/docker-snort:2.9.7.2-openappid
+    docker pull zoomequipd/docker-snort:2.9.7.2_openappid
 
 fi
 
