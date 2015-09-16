@@ -46,7 +46,7 @@ update_ruleset.sh is run during the easy_button.sh script to allow for ease of u
 
 ## Examples
 
-> ./run_engine.sh -i decodedtechsolutions/docker-snort-2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q -A Console"
+> ./run_engine.sh -i zoomequipd/docker-snort:2.9.6.0 -e snort -r ETOpen -p test.pcap -x "-q -A Console"
 
 
 ## Important Folders ##
@@ -84,16 +84,3 @@ To add your own rules to the ruleset, include a local.rules in the same director
   -  I suggest you use a unified2 reader on the host to read them.   
   -  Check out py-idstools for an example  https://github.com/jasonish/py-idstools 
 
-## Docker Images Links
-#### Snort 2.9.7.2 with OpenAppID support
-  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2_openappid 
-  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2-openappid/
-#### Snort 2.9.7.2
-  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.7.2
-  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.7.2/
-#### Snort 2.9.6.0
-  - https://bitbucket.org/decodedtechsolutions/docker-snort-2.9.6.0
-  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-snort-2.9.6.0/
-#### Suricata 
-  - https://bitbucket.org/decodedtechsolutions/docker-suricata-2.0.8
-  - https://registry.hub.docker.com/u/decodedtechsolutions/docker-suricata-2.0.8/
