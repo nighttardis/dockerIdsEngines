@@ -17,7 +17,7 @@ rm snort-policy.rules
 
 
 # snort openappid
-wget -q https://snort.org/downloads/openappid/1793 --output-document ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
+wget -q https://snort.org/downloads/openappid/2333 --output-document ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz
 tar zxf ./policies/snort/ETOpen_OpenAppID/snort-openappid.tar.gz -C ./policies/snort/ETOpen_OpenAppID/openappid/
 
 
