@@ -93,27 +93,27 @@ fi
 # get docker-snort-2.9.6.0
 if [ "$DOCKER_SNORT_2_9_6_0" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.6.0"
-    docker pull decodedtechsolutions/docker-snort-2.9.6.0
+    docker pull zoomequipd/docker-snort:2.9.6.0
 
 fi
 
 # get docker-snort-2.9.7.2
 if [ "$DOCKER_SNORT_2_9_7_2" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2"
-    docker pull decodedtechsolutions/docker-snort-2.9.7.2
+    docker pull zoomequipd/docker-snort:2.9.7.2
 
 fi
 
 # get docker-snort-2.9.7.2_openappid
 if [ "$DOCKER_SNORT_2_9_7_2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-snort-2.9.7.2_openappid"
-    docker pull decodedtechsolutions/docker-snort-2.9.7.2-openappid
+    docker pull zoomequipd/docker-snort:2.9.7.2-openappid
 
 fi
 
 if [ "$DOCKER_SURICATA_2_0_8" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-suricata-2.0.8"
-    docker pull decodedtechsolutions/docker-suricata-2.0.8
+    docker pull zoomequipd/docker-suricata:2.0.8
 fi
 
 ./update_ruleset.sh
