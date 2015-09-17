@@ -2,7 +2,7 @@
 #
 # Desigened to be used with https://github.com/zoomequipd/dockerIdsEngines
 # This is a more robust version of the run_engine.sh
-# Defaults are used for the engine, image as well as Ruleset
+# Defaults can be used for the engine, image as well as the Ruleset
 #
 
 
