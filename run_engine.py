@@ -10,8 +10,8 @@ import argparse, os, sys, time
 
 # Default variables 
 default_engine = "snort"
-default_snort_image = "zoomequipd/docker-snort:2.9.7.2"
-default_suricata_image = "zoomequipd/docker-suricata:2.0.8"
+default_snort_image = "zoomequipd/docker-snort:latest"
+default_suricata_image = "zoomequipd/docker-suricata:latest"
 default_ruleset = "ETOpen"
 
 # Main Function
@@ -25,7 +25,7 @@ def main():
     parser.add_argument('-e','--engine', help='IDS Engine (Snort|Suricata) Default:Snort')
     parser.add_argument('-r','--ruleset', help='IDS Ruleset to use Default:ETOpen')
     requiredNamed.add_argument('-p','--pcap', help='PCAP file to replay', required=True)
-    parser.add_argument('-x','--extra', help='Extra Values to pass to the IDS Engine')
+    parser.add_argument('-x','--extra', help='Extra Values to pass to the IDS Engine', nargs=argparse.REMAINDER)
 
     args = parser.parse_args()
 
@@ -41,13 +41,13 @@ def main():
         cmd="docker run --rm -v "+cwd+"/policies/"+(args.engine or default_engine)+"/"+(args.ruleset or default_ruleset)
         cmd+=":/usr/local/etc/"+(args.engine or default_engine)+" -v "+cwd+"/pcaps/:/tmp/ -v "+cwd+"/logs/"+(args.engine or default_engine)
         cmd+="/"+LOGDIR+"_"+args.pcap+":/var/log/"+(args.engine or default_engine)+"/ "+(args.image or default_snort_image)+" "
-        cmd+=(args.engine or default_engine)+" -c /usr/local/etc/"+(args.engine or default_engine)+"/snort.conf -r /tmp/"+args.pcap+" -H "+(args.extra or "")
+        cmd+=(args.engine or default_engine)+" -c /usr/local/etc/"+(args.engine or default_engine)+"/snort.conf -r /tmp/"+args.pcap+" -H "+(args.extra[0] or "")
         os.system(cmd)
     elif ((args.engine or default_engine).lower() == "suricata"):
         cmd="docker run --rm -v "+cwd+"/policies/"+(args.engine or default_engine)+"/"+(args.ruleset or default_ruleset)
         cmd+=":/usr/local/etc/"+(args.engine or default_engine)+" -v "+cwd+"/pcaps/:/tmp/ -v "+cwd+"/logs/"+(args.engine or default_engine)
         cmd+="/"+LOGDIR+"_"+args.pcap+":/var/log/"+(args.engine or default_engine)+"/ "+(args.image or default_suricata_image)+" "
-        cmd+=(args.engine or default_engine)+" -c /usr/local/etc/"+(args.engine or default_engine)+"/suricata.yaml -r /tmp/"+args.pcap+" "+(args.extra or "")
+        cmd+=(args.engine or default_engine)+" -c /usr/local/etc/"+(args.engine or default_engine)+"/suricata.yaml -r /tmp/"+args.pcap+" "+(args.extra[0] or "")
         os.system(cmd)
 
 if __name__ == "__main__":

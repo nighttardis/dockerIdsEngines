@@ -19,10 +19,10 @@ case $key in
     DOCKER_SNORT_2_9_7_2_OPENAPPID="YES"
     shift
     ;;
-	--docker-suricata-2.0.8)
-	DOCKER_SURICATA_2_0_8="YES"
-	shift
-	;;
+	  --docker-suricata-2.0.8)
+	  DOCKER_SURICATA_2_0_8="YES"
+	  shift
+	  ;;
     --install-all)
     INSTALL_ALL_IMAGES="YES"
     INSTALL_DOCKER="YES"
@@ -34,6 +34,14 @@ case $key in
     ;;
     --proxy-setup)
     SETUP_PROXY="YES"
+    shift
+    ;;
+    --install-snort-latest)
+    DOCKER_SNORT_LATEST="YES"
+    shift
+    ;;
+    --install-suricata-latest)
+    DOCKER_SURICATA_LATEST="YES"
     shift
     ;;
     *)
@@ -111,9 +119,23 @@ if [ "$DOCKER_SNORT_2_9_7_2_OPENAPPID" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "Y
 
 fi
 
+# get docker-snort-latest
+if [ "$DOCKER_SNORT_LATEST" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-snort-latest"
+    docker pull zoomequipd/docker-snort:latest
+
+fi
+
 if [ "$DOCKER_SURICATA_2_0_8" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
 	echo "pulling docker-suricata-2.0.8"
     docker pull zoomequipd/docker-suricata:2.0.8
+fi
+
+# get docker-suricata-latest
+if [ "$DOCKER_SURICATA_LATEST" = "YES" ] || [ "$INSTALL_ALL_IMAGES" = "YES" ]; then
+	echo "pulling docker-suricata-latest"
+    docker pull zoomequipd/docker-suricata:latest
+
 fi
 
 ./update_ruleset.sh
